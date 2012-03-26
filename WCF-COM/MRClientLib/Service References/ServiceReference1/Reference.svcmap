@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="536ff6e5-d0b1-4e86-bf49-e8587edbc987" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9000/MRService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MRService.wsdl" MetadataType="Wsdl" ID="b719133c-aa1a-406f-9730-42ead1d808c5" SourceId="1" SourceUrl="http://localhost:9000/MRService?wsdl" />
+    <MetadataFile FileName="MRService.xsd" MetadataType="Schema" ID="52c5290c-d62b-4ae8-9169-e77584ea1f44" SourceId="1" SourceUrl="http://localhost:9000/MRService?xsd=xsd0" />
+    <MetadataFile FileName="MRService1.xsd" MetadataType="Schema" ID="c29337e1-90ed-40b5-82ef-1439109617b8" SourceId="1" SourceUrl="http://localhost:9000/MRService?xsd=xsd1" />
+    <MetadataFile FileName="MRService.disco" MetadataType="Disco" ID="b33d9b10-1b07-4ce9-b5a9-83d86498db34" SourceId="1" SourceUrl="http://localhost:9000/MRService?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

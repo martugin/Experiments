@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="OhService">
+</Property><Property Name="Solution File" Value="C:\Projects\Surgut2-3\OhService\OhService.sln">
+</Property><Property Name="Date" Value="24 июня 2011 г.">
+</Property><Property Name="Time" Value="10:39">
+</Property></Properties><Event ErrorLevel="0" Project="OhService" Source="OhService\OhService.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="OhService" Source="OhService\OhService.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="OhService.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="OhService.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="OhService" Source="OhService\OhService.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="DetailedTree">
+</Property><Property Name="Solution File" Value="c:\Projects\InfoTask\Эксперименты\Tree\DetailedTree\DetailedTree.sln">
+</Property><Property Name="Date" Value="2 июня 2010 г.">
+</Property><Property Name="Time" Value="15:52:19">
+</Property></Properties><Event ErrorLevel="0" Project="DetailedTree" Source="DetailedTree.csproj" Description="Project file successfully backed up as c:\Projects\InfoTask\Эксперименты\Tree\DetailedTree\Backup\DetailedTree.csproj">
+</Event><Event ErrorLevel="0" Project="DetailedTree" Source="App.xaml.cs" Description="File successfully backed up as c:\Projects\InfoTask\Эксперименты\Tree\DetailedTree\Backup\App.xaml.cs">
+</Event><Event ErrorLevel="0" Project="DetailedTree" Source="MainWindow.xaml.cs" Description="File successfully backed up as c:\Projects\InfoTask\Эксперименты\Tree\DetailedTree\Backup\MainWindow.xaml.cs">
+</Event><Event ErrorLevel="0" Project="DetailedTree" Source="Properties\AssemblyInfo.cs" Description="File successfully backed up as c:\Projects\InfoTask\Эксперименты\Tree\DetailedTree\Backup\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="DetailedTree" Source="Properties\Resources.Designer.cs" Description="File successfully backed up as c:\Projects\InfoTask\Эксперименты\Tree\DetailedTree\Backup\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="DetailedTree" Source="Properties\Settings.Designer.cs" Description="File successfully backed up as c:\Projects\InfoTask\Эксперименты\Tree\DetailedTree\Backup\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="DetailedTree" Source="TreeItem.cs" Description="File successfully backed up as c:\Projects\InfoTask\Эксперименты\Tree\DetailedTree\Backup\TreeItem.cs">
+</Event><Event ErrorLevel="0" Project="DetailedTree" Source="Properties\Settings.settings" Description="File successfully backed up as c:\Projects\InfoTask\Эксперименты\Tree\DetailedTree\Backup\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="DetailedTree" Source="Properties\Resources.resx" Description="File successfully backed up as c:\Projects\InfoTask\Эксперименты\Tree\DetailedTree\Backup\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="DetailedTree" Source="App.xaml" Description="File successfully backed up as c:\Projects\InfoTask\Эксперименты\Tree\DetailedTree\Backup\App.xaml">
+</Event><Event ErrorLevel="0" Project="DetailedTree" Source="MainWindow.xaml" Description="File successfully backed up as c:\Projects\InfoTask\Эксперименты\Tree\DetailedTree\Backup\MainWindow.xaml">
+</Event><Event ErrorLevel="0" Project="DetailedTree" Source="DetailedTree.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="DetailedTree" Source="DetailedTree.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DetailedTree" Source="DetailedTree.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

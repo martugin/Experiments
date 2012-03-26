@@ -1,0 +1,31 @@
+﻿<Window x:Class="WPFGriid.WindowList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WindowList" Height="375" Width="634" xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid">
+    <Grid Name="gr">
+        <ListBox Height="214" HorizontalAlignment="Left" Margin="20,22,0,0" Name="listBox1" VerticalAlignment="Top" Width="270">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding Married, Mode=TwoWay}" />
+                        <TextBox Text="{Binding Name, Mode=TwoWay}" />
+                        <TextBlock Text="{Binding Clicuha}" />
+                        <TextBox Text="{Binding Age, Mode=TwoWay}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Height="214" HorizontalAlignment="Left" Margin="316,22,0,0" Name="listBox2" VerticalAlignment="Top" Width="270">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding Married, Mode=TwoWay}" />
+                        <TextBlock Text="{Binding Name, Mode=TwoWay}" />
+                        <TextBox Text="{Binding Age, Mode=TwoWay}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <xcdg:DateTimeTextBox Height="39" HorizontalAlignment="Left" Margin="132,260,0,0" Name="dateTimeTextBox1" VerticalAlignment="Top" Width="236" FontSize="20" DateTimeMaskMode="ShortDateAndLongTime" />
+    </Grid>
+</Window>

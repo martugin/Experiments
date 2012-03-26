@@ -1,0 +1,23 @@
+﻿<Window x:Class="WPFGriid.CopyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CopyWindow" Height="367" Width="540">
+    <Grid Name="Gr">
+        <DataGrid ItemsSource="{Binding}" EnableColumnVirtualization="True" IsSynchronizedWithCurrentItem="True" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="0,0,0,50" Name="CGrid" VerticalAlignment="Stretch" SelectionUnit="FullRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name, Mode=TwoWay}" Header="Name">
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType ="TextBox">
+                            <Setter Property="AcceptsReturn" Value="True" />
+                            <Setter Property="AcceptsTab" Value="True" />
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+            	<DataGridTextColumn Binding="{Binding Age, Mode=TwoWay}" Header="Age"/>
+                <DataGridCheckBoxColumn Binding="{Binding Married, Mode=TwoWay}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Буфер" Height="29" HorizontalAlignment="Left" Margin="42,0,0,12" Name="button1" VerticalAlignment="Bottom" Width="115" Click="button1_Click" />
+        <Button Content="Button" Height="31" HorizontalAlignment="Left" Margin="211,0,0,10" Name="button2" VerticalAlignment="Bottom" Width="116" Click="button2_Click" />
+    </Grid>
+</Window>

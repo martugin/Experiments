@@ -1,0 +1,90 @@
+﻿<Window x:Class="VariousBindingExamples.InputValidationViaIDataErrorInfo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Input Validation via IDataErrorInfo" Height="300" Width="300">
+  <Grid Margin="4">
+
+    <Grid.Resources>
+      <!-- 
+      The template which renders a TextBox 
+      when it contains invalid data. 
+      -->
+      <ControlTemplate x:Key="TextBoxErrorTemplate">
+        <DockPanel>
+          <Ellipse 
+            DockPanel.Dock="Right" 
+            Margin="2,0"
+            ToolTip="Contains invalid data"
+            Width="10" Height="10"            
+            >
+            <Ellipse.Fill>
+              <LinearGradientBrush>
+                <GradientStop Color="#11FF1111" Offset="0" />
+                <GradientStop Color="#FFFF0000" Offset="1" />
+              </LinearGradientBrush>
+            </Ellipse.Fill>
+          </Ellipse>
+          <!-- 
+          This placeholder occupies where the TextBox will appear. 
+          -->
+          <AdornedElementPlaceholder />
+        </DockPanel>
+      </ControlTemplate>
+
+      <!-- 
+      The Style applied to both TextBox controls in the UI.
+      -->
+      <Style TargetType="TextBox">
+        <Setter Property="Margin" Value="4,4,10,4" />
+        <Setter 
+          Property="Validation.ErrorTemplate" 
+          Value="{StaticResource TextBoxErrorTemplate}" 
+          />
+        <Style.Triggers>
+          <Trigger Property="Validation.HasError" Value="True">
+            <Setter Property="ToolTip">
+              <Setter.Value>
+                <Binding 
+                  Path="(Validation.Errors)[0].ErrorContent"
+                  RelativeSource="{x:Static RelativeSource.Self}"
+                  />
+              </Setter.Value>
+            </Setter>
+          </Trigger>
+        </Style.Triggers>
+      </Style>
+    </Grid.Resources>
+
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <!-- START DATE -->
+    <TextBlock Grid.Row="0">Start Date:</TextBlock>
+    <TextBox Grid.Row="1">
+      <TextBox.Text>
+        <Binding Path="StartDate" UpdateSourceTrigger="PropertyChanged">
+          <Binding.ValidationRules>
+            <ExceptionValidationRule />
+            <DataErrorValidationRule />
+          </Binding.ValidationRules>
+        </Binding>
+      </TextBox.Text>
+    </TextBox>
+
+    <!-- DURATION -->
+    <TextBlock Grid.Row="2">Duration:</TextBlock>
+    <TextBox 
+      Grid.Row="3" 
+      Text="{Binding 
+              Path=Duration, 
+              UpdateSourceTrigger=PropertyChanged, 
+              ValidatesOnDataErrors=True,
+              ValidatesOnExceptions=True}" 
+      />
+  </Grid>
+</Window>
