@@ -1,0 +1,24 @@
+﻿<Window x:Class="WPFGriid.ProbaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ProbaWindow" Height="446" Width="553">
+    <Grid>
+        <DataGrid RowHeaderWidth="15"  Margin="0,0,0,50" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Name="ProbaGrid" VerticalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding A, Mode=TwoWay}" Header="A"/>
+                <DataGridTextColumn Binding="{Binding B, Mode=TwoWay}" Header="B"/>
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <DataGrid Margin="10,0,0,0" RowHeaderWidth="15" ItemsSource="{Binding STabs}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding C, Mode=TwoWay}" Header="C" />
+                            <DataGridTextColumn Binding="{Binding D, Mode=TwoWay}" Header="D" />
+                        </DataGrid.Columns>
+                    </DataGrid>                    
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+        <Button Content="Button" Height="32" HorizontalAlignment="Left" Margin="21,366,0,10" Name="button1" VerticalAlignment="Bottom" Width="146" Click="button1_Click" />
+    </Grid>
+</Window>

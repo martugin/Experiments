@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Proba" Class="ProbaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MARTYGINPV;Initial Catalog=Proba;Integrated Security=True" SettingsObjectName="Databases.Properties.Settings" SettingsPropertyName="ProbaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Tabl2" Member="Tabl2s">
+    <Type Name="Tabl2">
+      <Column Name="n1" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="s1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="s2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabl1" Member="Tabl1s">
+    <Type Name="Tabl1">
+      <Column Name="s1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="s2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="n1" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Tabl3s">
+    <Type Name="Tabl3">
+      <Column Member="s1" Type="System.String" CanBeNull="false" />
+      <Column Member="n1" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

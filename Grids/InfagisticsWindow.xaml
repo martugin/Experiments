@@ -1,0 +1,28 @@
+﻿<ribbon:RibbonWindow x:Class="Grids.InfagisticsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+        Title="InfagisticsWindow" 
+        x:Name="Window"
+        Width="640" Height="480" xmlns:igDP="http://infragistics.com/DataPresenter" xmlns:igWindows="http://infragistics.com/Windows">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+         <ribbon:Ribbon x:Name="Ribbon">
+            <ribbon:RibbonTab x:Name="HomeTab" Header="Home">
+                <ribbon:RibbonGroup x:Name="Group1" Header="Group1">
+                    <ribbon:RibbonButton x:Name="ButCol"
+                                         LargeImageSource="Images\Infagistics.ico"
+                                         Label="Коллекция" Click="Col_Click" />
+                </ribbon:RibbonGroup>
+                
+            </ribbon:RibbonTab>
+        </ribbon:Ribbon>
+        <igDP:XamDataGrid Grid.Row="1" HorizontalAlignment="Stretch" Name="DGrid" VerticalAlignment="Stretch" AutoFit="True" IsGroupByAreaExpanded="False" IsSynchronizedWithCurrentItem="True" IsUndoEnabled="True" IsManipulationEnabled="True" UndoLimit="10" Margin="0,0,0,45">
+            
+        </igDP:XamDataGrid>
+    </Grid>
+</ribbon:RibbonWindow>

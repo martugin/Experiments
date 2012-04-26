@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProbaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ProbaModelStoreContainer">
+          <EntitySet Name="FTab" EntityType="ProbaModel.Store.FTab" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="STab" EntityType="ProbaModel.Store.STab" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_STab_FTab" Association="ProbaModel.Store.FK_STab_FTab">
+            <End Role="FTab" EntitySet="FTab" />
+            <End Role="STab" EntitySet="STab" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="FTab">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="A" Type="nvarchar" MaxLength="50" />
+          <Property Name="B" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="STab">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="C" Type="nvarchar" MaxLength="50" />
+          <Property Name="D" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id1" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="FK_STab_FTab">
+          <End Role="FTab" Type="ProbaModel.Store.FTab" Multiplicity="1" />
+          <End Role="STab" Type="ProbaModel.Store.STab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FTab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="STab">
+              <PropertyRef Name="Id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProbaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ProbaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FTabs" EntityType="ProbaModel.FTab" />
+          <EntitySet Name="STabs" EntityType="ProbaModel.STab" />
+          <AssociationSet Name="FK_STab_FTab" Association="ProbaModel.FK_STab_FTab">
+            <End Role="FTab" EntitySet="FTabs" />
+            <End Role="STab" EntitySet="STabs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="FTab">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="A" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="B" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="STabs" Relationship="ProbaModel.FK_STab_FTab" FromRole="FTab" ToRole="STab" />
+        </EntityType>
+        <EntityType Name="STab">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="C" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="D" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Id1" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="FTab" Relationship="ProbaModel.FK_STab_FTab" FromRole="STab" ToRole="FTab" />
+        </EntityType>
+        <Association Name="FK_STab_FTab">
+          <End Role="FTab" Type="ProbaModel.FTab" Multiplicity="1" />
+          <End Role="STab" Type="ProbaModel.STab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FTab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="STab">
+              <PropertyRef Name="Id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProbaModelStoreContainer" CdmEntityContainer="ProbaEntities">
+          <EntitySetMapping Name="FTabs"><EntityTypeMapping TypeName="ProbaModel.FTab"><MappingFragment StoreEntitySet="FTab">
+            <ScalarProperty Name="A" ColumnName="A" />
+            <ScalarProperty Name="B" ColumnName="B" />
+            <ScalarProperty Name="Id" ColumnName="Id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="STabs"><EntityTypeMapping TypeName="ProbaModel.STab"><MappingFragment StoreEntitySet="STab">
+            <ScalarProperty Name="C" ColumnName="C" />
+            <ScalarProperty Name="D" ColumnName="D" />
+            <ScalarProperty Name="Id1" ColumnName="Id1" />
+            <ScalarProperty Name="Id" ColumnName="Id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Proba">
+        <EntityTypeShape EntityType="ProbaModel.FTab" Width="1.5" PointX="0.75" PointY="1" Height="1.7683317057291672" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProbaModel.STab" Width="1.5" PointX="3" PointY="0.875" Height="1.9578255208333335" IsExpanded="true" />
+        <AssociationConnector Association="ProbaModel.FK_STab_FTab" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.8841658528645837" />
+          <ConnectorPoint PointX="3" PointY="1.8841658528645837" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

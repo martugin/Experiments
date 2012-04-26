@@ -1,0 +1,11 @@
+﻿<Application x:Class="VariousBindingExamples.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:VariousBindingExamples"
+    StartupUri="MainWindow.xaml"
+    >
+  <Application.Resources>
+    <!-- , Converter={StaticResource dummyConverter} -->
+    <local:DummyConverter x:Key="dummyConverter" />
+  </Application.Resources>
+</Application>

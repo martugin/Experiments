@@ -1,0 +1,21 @@
+﻿<Window x:Class="VariousBindingExamples.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Binding Demos" Height="250" Width="320"
+    WindowStartupLocation="CenterScreen"
+    >
+    <Grid>
+    <ItemsControl ItemsSource="{Binding Path=.}" ButtonBase.Click="OnButtonClick">
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <Button 
+            Content="{Binding Path=Title}"
+            Margin="2"
+            Tag="{Binding Path=.}"  
+            Width="280" 
+            />
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+  </Grid>
+</Window>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Databases">
+</Property><Property Name="Solution File" Value="c:\Projects\C\Databases\Databases.sln">
+</Property><Property Name="Date" Value="6 мая 2010 г.">
+</Property><Property Name="Time" Value="9:56">
+</Property></Properties><Event ErrorLevel="0" Project="Databases" Source="Databases\Databases.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Databases" Source="Databases\Databases.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Databases.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Databases.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Databases" Source="Databases\Databases.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

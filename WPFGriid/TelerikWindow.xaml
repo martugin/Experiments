@@ -1,0 +1,13 @@
+﻿<Window x:Class="WPFGriid.TelerikWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TelerikWindow" Height="439" Width="767" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+    <Grid>
+        <telerik:RadGridView HorizontalAlignment="Left" Name="TGrid" VerticalAlignment="Top" DataContext="{Binding}" Height="346" ShowInsertRow="True" AutoGenerateColumns="False" Width="287" SelectionMode="Extended" AllowDrop="True">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="A" DataMemberBinding="{Binding A}"/>
+                <telerik:GridViewDataColumn Header="B" DataMemberBinding="{Binding B}"/>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </Grid>
+</Window>

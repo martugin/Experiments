@@ -1,0 +1,33 @@
+﻿<ribbon:RibbonWindow x:Class="WPFGriid.DXWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+        Title="DXWindow" 
+        x:Name="Window"
+        Width="664" Height="502" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+         <ribbon:Ribbon x:Name="Ribbon">
+            <ribbon:RibbonTab x:Name="HomeTab" 
+                              Header="Home">
+                <ribbon:RibbonGroup x:Name="Group1" 
+                                    Header="Group1">
+                     
+                </ribbon:RibbonGroup>
+                
+            </ribbon:RibbonTab>
+        </ribbon:Ribbon>
+        <dxg:GridControl Grid.Row="1" HorizontalAlignment="Left" Name="DXGrid" VerticalAlignment="Top" Height="292" Width="618">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn Header="A" FieldName="A" />
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+                <dxg:TableView />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</ribbon:RibbonWindow>

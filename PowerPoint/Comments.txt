@@ -1,0 +1,5 @@
+var s = Globals.ThisAddIn.Application.ActivePresentation.Slides[1];
+Globals.ThisAddIn.Application.ActiveWindow.Selection.ShapeRange.Name = "Shape1";
+Shape h = s.Shapes["Shape1"];
+s.Comments.Add(h.Left, h.Top, "", "", "Shape1");
+MessageBox.Show(s.Shapes[s.Comments[1].Text].TextFrame.TextRange.Text);

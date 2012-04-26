@@ -1,0 +1,23 @@
+﻿<Window x:Class="VariousBindingExamples.WorkingWithTemplates"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Working with Templates" Height="300" Width="300">
+  <Grid Margin="4">
+
+    <!-- This displays the FullName objects. -->
+    <ItemsControl ItemsSource="{Binding Path=.}">
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Horizontal">
+            <TextBlock FontWeight="Bold" Text="{Binding LastName}" />
+            <TextBlock Text=", " />
+            <TextBlock Text="{Binding FirstName}" />
+            <TextBlock Text=" " />
+            <TextBlock Text="{Binding MiddleInitial}" />
+          </StackPanel>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+
+  </Grid>
+</Window>

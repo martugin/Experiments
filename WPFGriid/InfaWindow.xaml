@@ -1,0 +1,14 @@
+﻿<Window x:Class="WPFGriid.InfaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="InfaWindow" Height="344" Width="537" xmlns:igDP="http://infragistics.com/DataPresenter">
+    <Grid>
+        <igDP:XamDataGrid  HorizontalAlignment="Left" Name="IGrid" VerticalAlignment="Top" Height="234" Width="515" UndoLimit="10" BindToSampleData="True">
+            <igDP:XamDataPresenter 
+                Name="xamDataPresenter1" 
+                BindToSampleData="True" 
+                IsUndoEnabled="True">
+            </igDP:XamDataPresenter>
+        </igDP:XamDataGrid>
+    </Grid>
+</Window>
