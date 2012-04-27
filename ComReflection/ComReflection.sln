@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Call", "Call\Call.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog", "Prog\Prog.csproj", "{77AD0209-B691-4907-AFA6-AEAFF8913A86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bib", "Bib\Bib.csproj", "{4792A45C-C0C9-4C21-B8D2-8B7AE27870C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,16 @@ Global
 		{77AD0209-B691-4907-AFA6-AEAFF8913A86}.Release|Mixed Platforms.Build.0 = Release|x86
 		{77AD0209-B691-4907-AFA6-AEAFF8913A86}.Release|x86.ActiveCfg = Release|x86
 		{77AD0209-B691-4907-AFA6-AEAFF8913A86}.Release|x86.Build.0 = Release|x86
+		{4792A45C-C0C9-4C21-B8D2-8B7AE27870C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4792A45C-C0C9-4C21-B8D2-8B7AE27870C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4792A45C-C0C9-4C21-B8D2-8B7AE27870C9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4792A45C-C0C9-4C21-B8D2-8B7AE27870C9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4792A45C-C0C9-4C21-B8D2-8B7AE27870C9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4792A45C-C0C9-4C21-B8D2-8B7AE27870C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4792A45C-C0C9-4C21-B8D2-8B7AE27870C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4792A45C-C0C9-4C21-B8D2-8B7AE27870C9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4792A45C-C0C9-4C21-B8D2-8B7AE27870C9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4792A45C-C0C9-4C21-B8D2-8B7AE27870C9}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
