@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.2.0.8649-Beta 2
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostSharpProba", "PostSharpProba\PostSharpProba.csproj", "{300D64FB-BCD3-4D1D-9B3C-B5604150C208}"
+EndProject
+Project("{CFEE4113-1246-4D54-95CB-156813CB8593}") = "SetupProbaT", "SetupProbaT\SetupProbaT.wixproj", "{36EFC12C-47C4-4343-9F0D-8C85A9496F74}"
+EndProject
+Project("{FD48973F-F585-4F70-812B-4D0503B36CE9}") = "Pyt", "Pyt\Pyt.pyproj", "{94BD3FD2-264E-4403-94FF-0934A6A75013}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{300D64FB-BCD3-4D1D-9B3C-B5604150C208}.Debug|x86.Build.0 = Debug|x86
+		{300D64FB-BCD3-4D1D-9B3C-B5604150C208}.Debug|x86.ActiveCfg = Debug|x86
+		{300D64FB-BCD3-4D1D-9B3C-B5604150C208}.Release|x86.Build.0 = Release|x86
+		{300D64FB-BCD3-4D1D-9B3C-B5604150C208}.Release|x86.ActiveCfg = Release|x86
+		{36EFC12C-47C4-4343-9F0D-8C85A9496F74}.Debug|x86.Build.0 = Debug|x86
+		{36EFC12C-47C4-4343-9F0D-8C85A9496F74}.Debug|x86.ActiveCfg = Debug|x86
+		{36EFC12C-47C4-4343-9F0D-8C85A9496F74}.Release|x86.Build.0 = Release|x86
+		{36EFC12C-47C4-4343-9F0D-8C85A9496F74}.Release|x86.ActiveCfg = Release|x86
+		{94BD3FD2-264E-4403-94FF-0934A6A75013}.Debug|x86.Build.0 = Debug|x86
+		{94BD3FD2-264E-4403-94FF-0934A6A75013}.Debug|x86.ActiveCfg = Debug|x86
+		{94BD3FD2-264E-4403-94FF-0934A6A75013}.Release|x86.Build.0 = Release|x86
+		{94BD3FD2-264E-4403-94FF-0934A6A75013}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+EndGlobal

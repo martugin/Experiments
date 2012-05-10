@@ -4,11 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Bib;
-using Call;
+using Sbor;
 
 namespace Ref
 {
-    public class A 
+    public class Fac
+    {
+        public A New()
+        {
+            return new A();
+        }
+    }
+
+    public class A : IA
     {
         public A()
         {

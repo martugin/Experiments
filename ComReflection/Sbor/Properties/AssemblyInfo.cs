@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Call")]
+[assembly: AssemblyTitle("Sbor")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("UTE")]
-[assembly: AssemblyProduct("Call")]
+[assembly: AssemblyProduct("Sbor")]
 [assembly: AssemblyCopyright("Copyright © UTE 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(true)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("9c18ef9f-47b4-4edb-9438-215bef19d078")]
+[assembly: Guid("2dd65f37-6bcf-4870-ab7c-bf8c18e44dce")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

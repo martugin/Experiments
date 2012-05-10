@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FC5D9C73-CFCE-4021-91F7-8E75EE03F804}</ProjectGuid>
+    <ProjectGuid>{74674CFC-2F1D-4925-AAF6-D52E0A4E3364}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Call</RootNamespace>
-    <AssemblyName>Call</AssemblyName>
+    <RootNamespace>Sbor</RootNamespace>
+    <AssemblyName>Sbor</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -81,9 +81,9 @@
       <Project>{4792A45C-C0C9-4C21-B8D2-8B7AE27870C9}</Project>
       <Name>Bib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Call\Call.csproj">
-      <Project>{FC5D9C73-CFCE-4021-91F7-8E75EE03F804}</Project>
-      <Name>Call</Name>
+    <ProjectReference Include="..\Sbor\Sbor.csproj">
+      <Project>{74674CFC-2F1D-4925-AAF6-D52E0A4E3364}</Project>
+      <Name>Sbor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
