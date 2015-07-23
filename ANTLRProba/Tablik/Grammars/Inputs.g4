@@ -25,10 +25,10 @@ arg : DATATYPE IDENT   #ArgDataType
       | IDENT                     #ArgIdent ;
 
 constVal : BOOL         #ConstBool	
-		| INT 	         #ConstInt
-		| STRING     #ConstString 
-		| REAL          #ConstReal 
-		| DATE         #ConstDate	;
+			| INT 	         #ConstInt
+			| STRING     #ConstString 
+			| REAL          #ConstReal 
+			| DATE         #ConstDate	;
 					
 /* Lexer Rules */
 fragment SYMB : [_a-zA-Zà-ÿÀ-ß];
