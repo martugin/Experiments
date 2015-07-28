@@ -44,7 +44,7 @@ namespace Generator
             s += Token == null ? "" : Token.Text;
             if (Children != null && Children.Length != 0)
             {
-                s += "(";
+                s += " (";
                 for (int i = 0; i < Children.Length; i++)
                 {
                     if (i > 0) s += ", ";

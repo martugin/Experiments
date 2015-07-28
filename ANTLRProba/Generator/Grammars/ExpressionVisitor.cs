@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using Antlr4.Runtime.Tree;
 
 namespace Generator
@@ -7,8 +8,8 @@ namespace Generator
     {
         public override Node VisitCombinedText(ExpressionParser.CombinedTextContext context)
         {
-            var ch = new Node[context.ChildCount];
-            for (int i = 0; i < context.ChildCount; i++)
+            var ch = new Node[context.ChildCount-1];
+            for (int i = 0; i < context.ChildCount-1; i++)
                 ch[i] = Visit(context.GetChild(i));
             return new Node(NodeType.CombinedText, null, ch);
         }
@@ -35,7 +36,22 @@ namespace Generator
 
         public override Node VisitElementText(ExpressionParser.ElementTextContext context)
         {
-            return new Node(NodeType.Text, context.TEXT().Symbol);
+            return Visit(context.text());
+        }
+
+        public override Node VisitTextKeyword(ExpressionParser.TextKeywordContext context)
+        {
+            return Visit(context.keyword());
+        }
+
+        public override Node VisitTextText(ExpressionParser.TextTextContext context)
+        {
+            return new Node(NodeType.Text, ((ITerminalNode)context.GetChild(0)).Symbol);
+        }
+
+        public override Node VisitGetKeyword(ExpressionParser.GetKeywordContext context)
+        {
+            return new Node(NodeType.Text, ((ITerminalNode)context.GetChild(0)).Symbol);
         }
 
         public override Node VisitTagIdent(ExpressionParser.TagIdentContext context)
@@ -66,7 +82,7 @@ namespace Generator
             return new Node(NodeType.Oper, context.OPER().Symbol, 
                 new[] {
                     new Node(NodeType.Field, context.IDENT(0).Symbol), 
-                    new Node(NodeType.Const, context.IDENT(0).Symbol)
+                    new Node(NodeType.Const, context.IDENT(1).Symbol)
                 });
         }
 

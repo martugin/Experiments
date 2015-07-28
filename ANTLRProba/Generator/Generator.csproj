@@ -83,6 +83,7 @@
       <Generator>MSBuild:Compile</Generator>
       <CustomToolNamespace>Generator</CustomToolNamespace>
       <Listener>True</Listener>
+      <ForceAtn>False</ForceAtn>
     </Antlr4>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

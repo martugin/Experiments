@@ -55,7 +55,7 @@
             this.Formula.Location = new System.Drawing.Point(3, 3);
             this.Formula.Multiline = true;
             this.Formula.Name = "Formula";
-            this.Formula.Size = new System.Drawing.Size(321, 55);
+            this.Formula.Size = new System.Drawing.Size(666, 55);
             this.Formula.TabIndex = 9;
             // 
             // ButCalc
