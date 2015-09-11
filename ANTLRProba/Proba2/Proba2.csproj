@@ -79,6 +79,12 @@
     <Compile Include="Grammars\Calc.g4.parser.cs">
       <DependentUpon>Calc.g4</DependentUpon>
     </Compile>
+    <Compile Include="Grammars\Combined1.g4.lexer.cs">
+      <DependentUpon>Combined1.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Grammars\Combined1.g4.parser.cs">
+      <DependentUpon>Combined1.g4</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tree\Node.cs" />
@@ -97,6 +103,10 @@
     <Antlr4 Include="Grammars\Calc.g4">
       <Generator>MSBuild:Compile</Generator>
       <CustomToolNamespace>Proba2</CustomToolNamespace>
+    </Antlr4>
+    <Antlr4 Include="Grammars\Combined1.g4">
+      <Generator>MSBuild:Compile</Generator>
+      <CustomToolNamespace>Proba2.Grammars</CustomToolNamespace>
     </Antlr4>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
