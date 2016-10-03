@@ -9,9 +9,9 @@ namespace MRHost
 {
     public partial class HostForm1 : Form
     {
-        public ServiceHost host;
-        private WSHttpBinding wsBinding;
-        private NetTcpBinding tcpBinding;
+        public ServiceHost Host;
+        private WSHttpBinding _wsBinding;
+        private NetTcpBinding _tcpBinding;
 
         public HostForm1()
         {
@@ -30,34 +30,34 @@ namespace MRHost
             //Формируем хост, указывая сервис и базовые адреса
             Uri httpBaseAddress = new Uri("http://localhost:9000/MRService");
             Uri tcpBaseAddress = new Uri("net.tcp://localhost:9010/MRService");
-            host = new ServiceHost(typeof(MRService), httpBaseAddress, tcpBaseAddress);
+            Host = new ServiceHost(typeof(MRService), httpBaseAddress, tcpBaseAddress);
 
             //Настраиваем MEX
             ServiceMetadataBehavior metadataBehavior;
-            metadataBehavior = host.Description.Behaviors.Find<ServiceMetadataBehavior>();
+            metadataBehavior = Host.Description.Behaviors.Find<ServiceMetadataBehavior>();
             if (metadataBehavior == null)
             {
                 metadataBehavior = new ServiceMetadataBehavior();
                 metadataBehavior.HttpGetEnabled = true;
-                host.Description.Behaviors.Add(metadataBehavior);
+                Host.Description.Behaviors.Add(metadataBehavior);
             }
 
             //Добавляем конечные точки
-            wsBinding = new WSHttpBinding();
-            tcpBinding = new NetTcpBinding();
-            host.AddServiceEndpoint(typeof(IMetadataExchange), tcpBinding, "MEX");
-            host.AddServiceEndpoint(typeof(IMR), wsBinding, "");
-            host.AddServiceEndpoint(typeof (IMR), tcpBinding, "");
+            _wsBinding = new WSHttpBinding();
+            _tcpBinding = new NetTcpBinding();
+            Host.AddServiceEndpoint(typeof(IMetadataExchange), _tcpBinding, "MEX");
+            Host.AddServiceEndpoint(typeof(IMR), _wsBinding, "");
+            Host.AddServiceEndpoint(typeof (IMR), _tcpBinding, "");
         }
 
         //Открываем хост
         private string st;
         private void button1_Click(object sender, EventArgs e)
         {
-            host.Open();
+            Host.Open();
             label1.BackColor = Color.DeepSkyBlue;
             label1.Text = "Хост запущен";
-            foreach (var s in host.Description.Endpoints)
+            foreach (var s in Host.Description.Endpoints)
             {
                 st += s.Address + "\n";
                 st += s.Binding + "\n";

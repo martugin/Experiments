@@ -1,0 +1,12 @@
+public static class RegexUtility
+{
+	public static string EscapeCharacters(string s)
+	{
+		if (s.IsEmpty())
+			return String.Empty;
+
+		StringBuilder builder = new StringBuilder(s.Length * 6);
+		s.Foreach(c => builder.Append("\\u").Append(((int)(c)).ToString("X4")));
+		return builder.ToString();
+	}
+}

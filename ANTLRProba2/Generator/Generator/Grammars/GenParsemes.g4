@@ -16,10 +16,10 @@ prog : voidProg                    #ProgVoid
 		;
 
 valueProg : voidProg SEP expr    #ValueProgComplex
-               | expr                       #ValueProgSimple
+               | expr                        #ValueProgSimple
 			   ;
 
-voidProg : voidExpr (SEP voidExpr)* ;
+voidProg : voidExpr (SEP voidExpr)*;
 
 //Выражения без значения
 voidExpr : VOID                                                #VoidExprVoid 
@@ -28,7 +28,7 @@ voidExpr : VOID                                                #VoidExprVoid
 			  | WHILE LPAREN expr COLON voidProg RPAREN   #VoidExprWhile
 			  ;
 
-ifVoidPars : expr COLON voidProg (COLON expr COLON voidProg)* voidProg?;
+ifVoidPars : expr COLON voidProg (COLON expr COLON voidProg)* COLON voidProg?;
 
 //Выражения со значением
 expr : cons                                              #ExprCons		

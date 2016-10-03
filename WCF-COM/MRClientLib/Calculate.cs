@@ -6,46 +6,46 @@ namespace MRClientLib
 {
     public class Calculate
     {
-        private System.ServiceModel.Channels.Binding binding;// = new WSHttpBinding();
-        private EndpointAddress address;// = new EndpointAddress("http://localhost:9000/MRService/");
-        public MRClient proxy;
+        private System.ServiceModel.Channels.Binding _binding;// = new WSHttpBinding();
+        private EndpointAddress _address;// = new EndpointAddress("http://localhost:9000/MRService/");
+        public MRClient Proxy;
 
         public Calculate()
         {
-            binding = new WSHttpBinding();
-            address = new EndpointAddress("http://localhost:9000/MRService/");
-            proxy = new MRClient(binding, address);
+            _binding = new WSHttpBinding();
+            _address = new EndpointAddress("http://localhost:9000/MRService/");
+            Proxy = new MRClient(_binding, _address);
         }
 
         public void DownloadAddress(string aS)
         {
             if (aS == "localhost")
             {
-                binding = new WSHttpBinding();
-                address = new EndpointAddress("http://localhost:9000/MRService/");
+                _binding = new WSHttpBinding();
+                _address = new EndpointAddress("http://localhost:9000/MRService/");
             }
             else
             {
-                binding = new NetTcpBinding();
-                address = new EndpointAddress(aS + "MRService/");
+                _binding = new NetTcpBinding();
+                _address = new EndpointAddress(aS + "MRService/");
             }
 
-            proxy = new MRClient(binding, address);
+            Proxy = new MRClient(_binding, _address);
         }
 
         //public void proxyCreate()
         //{
-        //    proxy = new MRClient(binding, address);
+        //    Proxy = new MRClient(_binding, _address);
         //}
 
         public string Reverse(string a)
         {
-            return proxy.Reverse(a);
+            return Proxy.Reverse(a);
         }
 
         public string ToLower(string a)
         {
-            return proxy.ToLower(a);
+            return Proxy.ToLower(a);
         }
     }
 }

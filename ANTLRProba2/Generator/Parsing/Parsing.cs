@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Antlr4.Runtime;
 
 namespace Generator
@@ -36,7 +37,7 @@ namespace Generator
         //Строка с результатами парсинга для тестов
         public string ToTestString()
         {
-            return (ResultTree == null ? "" : ResultTree.ToTestString()) + "\r\n" + ErrMess;
+            return (ResultTree == null ? "" : ResultTree.ToTestString()) + Environment.NewLine + ErrMess;
         }
 
         //Создать лексер
