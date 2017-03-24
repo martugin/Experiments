@@ -1,0 +1,41 @@
+﻿{
+module Lexer
+open System
+open Parser
+open Microsoft.FSharp.Text.Lexing
+
+let lexeme lexbuf =
+    LexBuffer<char>.LexemeString lexbuf
+}
+
+// These are some regular expression definitions
+let digit = ['0'-'9']
+let symbol = ['a'-'z' 'A'-'Z' '_' 'А'-'Я' 'а'-'я']
+let whitespace = [' ' '\t' ]
+let newline = ('\n' | '\r' '\n')
+
+rule tokenize = parse
+| whitespace	{ tokenize lexbuf }
+| newline       { tokenize lexbuf }
+// Operators
+| "+"			{ PLUS }
+| "-"			{ MINUS }
+| "*"			{ ASTER }
+| "/"			{ SLASH }
+| "="			{ LET }
+// Misc
+| "("			{ LPAREN }
+| ")"			{ RPAREN }
+| ";"			{ SEP }
+// Numberic constants
+| ['-']?digit+									{ INT (lexeme lexbuf) }
+| ['-']?digit+('.'digit+)?(['e''E']digit+)?		{ REAL (lexeme lexbuf) }
+| symbol+							{IDENT (lexeme lexbuf)}
+// EOF
+| eof   { EOF }
+
+//Комментарии
+| "/*" { comment lexbuf; tokenize lexbuf }
+and comment = parse
+| "*/" | eof { () }
+| _ { comment lexbuf }
