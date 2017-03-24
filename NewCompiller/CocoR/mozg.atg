@@ -1,0 +1,21 @@
+COMPILER TinyCode
+
+CHARACTERS 
+	letter="ABCDEFGHIGKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+	digit"0123456789"
+	
+TOKENS
+	Identifier = letter {letter | digit}
+	Number = ['-'] digit {digit}
+	true = "true"
+	false = "false"
+
+COMMENTS FROM "//" TO '\n'
+IGNORE '\r' + '\n' + '\t'
+
+PRODUCTIONS
+	TinyCode = "program" Identifier "." ProgramBody.
+	
+	ProgramBody =["var" DeclareVar {DeclareVar}] "begin" {Statement} "end.".
+
+End TinyCode.
