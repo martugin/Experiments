@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Kvint
@@ -16,79 +17,123 @@ namespace Kvint
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private int _handler;
+
+        private void AddLog(string s)
         {
-            MessageBox.Show("Init: " + CsApi.Init());
-            MessageBox.Show("Версия: " + CsApi.GetKvintVersion().ToString("x"));
-            CsApi.Done();
+            Log.Text += Environment.NewLine + s;
+        }
+
+        private void LogData(CsData m)
+        {
+            var t = CsApi.KvintToTime(m.Time);
+            AddLog(t + "," + t.Millisecond.ToString("000") + " - " + m.Value + " - " + m.ErrorCode);
         }
 
         private void butParam_Click(object sender, EventArgs e)
         {
-            var h = CsApi.OpenParamById(Convert.ToInt32(CardId.Text), Convert.ToInt32(ParamNo.Text ?? "0"), 0);
-            MessageBox.Show("Handler по Id: " + h);
-            var hs = CsApi.OpenParamByName(Marka.Text, ParamName.Text, 0);
-            MessageBox.Show("Handler по Marka: " + hs);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //var h = CsApi.OpenParamById(Convert.ToInt32(CardId.Text), Convert.ToInt32(ParamNo.Text ?? "0"), 0x1015);
-            var h = CsApi.OpenParamById(Convert.ToInt32(CardId.Text), 0, 0);
-            //var h = CsApi.OpenParamExternal(Convert.ToInt32(CardId.Text), Convert.ToInt32(ParamNo.Text ?? "0"), ServerName.Text, 0);
-            MessageBox.Show("Handler по Id: " + h);
-            CsData m = new CsData();
-            var d = CsApi.TimeToKvint(Convert.ToDateTime(TimeBegin.Text));
-            MessageBox.Show(d + "\n" + CsApi.GetTime());
-            try
+            Log.Text = "Init: " + CsApi.Init();
+            if (radioId.Checked)
             {
-                MessageBox.Show("Поиск: " + CsApi.FindFirst(h, ref m, CsApi.TimeToKvint(Convert.ToDateTime(TimeBegin.Text))));
-                MessageBox.Show(m.Time + " - " + m.Value + " - " + m.ErrorCode);
+                _handler = CsApi.OpenParamById(Convert.ToInt32(CardId.Text),
+                                                                   string.IsNullOrEmpty(ParamNo.Text) ? 0 : Convert.ToInt32(ParamNo.Text),
+                                                                   Convert.ToInt32(Flags.Text));
+                _handler = CsApi.OpenParamById(Convert.ToInt32(CardId.Text), 
+                                                                   string.IsNullOrEmpty(ParamNo.Text) ? 0 : Convert.ToInt32(ParamNo.Text), 
+                                                                   Convert.ToInt32(Flags.Text));
+                AddLog("Handler по Id: " + _handler);
             }
-            catch (Exception ex)
+            if (radioExternal.Checked)
             {
-                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
+                _handler = CsApi.OpenParamExternal(Convert.ToInt32(CardId.Text),
+                                                                        string.IsNullOrEmpty(ParamNo.Text) ? 0 : Convert.ToInt32(ParamNo.Text),
+                                                                        ServerName.Text,
+                                                                        Convert.ToInt32(Flags.Text));
+                _handler = CsApi.OpenParamExternal(Convert.ToInt32(CardId.Text),
+                                                                        string.IsNullOrEmpty(ParamNo.Text) ? 0 : Convert.ToInt32(ParamNo.Text),
+                                                                        ServerName.Text,
+                                                                        Convert.ToInt32(Flags.Text));
+                AddLog("Handler External: " + _handler);    
             }
-
-            try
+            if (radioMarka.Checked)
             {
-                MessageBox.Show("Значение: " + CsApi.ReadData(h, ref m));
-                MessageBox.Show(m.Time + " - " + m.Value + " - " + m.ErrorCode);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
-            }
-
-            try
-            {
-                MessageBox.Show("Следующее: " + CsApi.FindNext(h, ref m));
-                MessageBox.Show(m.Time + " - " + m.Value + " - " + m.ErrorCode);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
+                _handler = CsApi.OpenParamByName(Marka.Text, ParamName.Text, Convert.ToInt32(Flags.Text));
+                _handler = CsApi.OpenParamByName(Marka.Text, ParamName.Text, Convert.ToInt32(Flags.Text));
+                AddLog("Handler по марке: " + _handler);
             }
         }
 
-        private void butTime_Click(object sender, EventArgs e)
+        private void butFirst_Click(object sender, EventArgs e)
         {
-            var d = CsApi.GetTime();
-            MessageBox.Show(d.ToString());
-            string s = "";
-            CsApi.TimeToString(s, 18, d);
-            MessageBox.Show(s);
+            try
+            {
+                CsData m = new CsData();
+                var d = CsApi.TimeToKvint(Convert.ToDateTime(TimeBegin.Text));
+                AddLog("Время: " + d);
+                AddLog("FindFirst: " + CsApi.FindFirst(_handler, ref m, d));
+                LogData(m);
+            }
+            catch (Exception ex)
+            {
+               AddLog(ex.Message);
+            }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void butRead_Click(object sender, EventArgs e)
         {
-            var h = CsApi.OpenParamExternal(Convert.ToInt32(CardId.Text), Convert.ToInt32(ParamNo.Text ?? "0"), ServerName.Text, 0x1015);
-            MessageBox.Show("Handler по Id: " + h);
+            try
+            {
+                CsData m = new CsData();
+                AddLog("ReadData: " + CsApi.ReadData(_handler, ref m));
+                LogData(m);
+            }
+            catch (Exception ex)
+            {
+                AddLog(ex.Message);
+            }
         }
 
         private void butNext_Click(object sender, EventArgs e)
         {
+            try
+            {
+                CsData m = new CsData();
+                AddLog("FindNext: " + CsApi.FindNext(_handler, ref m));
+                LogData(m);
+            }
+            catch (Exception ex)
+            {
+                AddLog(ex.Message);
+            }
+        }
 
+        private void butClose_Click(object sender, EventArgs e)
+        {
+            CsApi.Done();
+            AddLog("Закрытие");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddLog("Версия: " + CsApi.GetKvintVersion().ToString("x"));
+        }
+
+        private void FormCsApi_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CsApi.Done();
+        }
+
+        private void butList_Click(object sender, EventArgs e)
+        {
+            CsData m = new CsData();
+            var d = CsApi.TimeToKvint(Convert.ToDateTime(TimeBegin.Text));
+            CsApi.FindFirst(_handler, ref m, d);
+            int n = 1;
+            var t = DateTime.Now;
+            while (CsApi.FindNext(_handler, ref m))
+                n++;
+            AddLog("Прочитано " + n + " значений");
+            AddLog(DateTime.Now.Subtract(t).TotalMilliseconds + " мс");
         }
     }
 }
