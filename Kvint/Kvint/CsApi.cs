@@ -97,13 +97,13 @@ namespace Kvint
         //Переводит время из квинтового в нормальное
         public static DateTime KvintToTime(double d)
         {
-            return new DateTime(1970, 1, 1).AddSeconds(d);
+            return new DateTime(1970, 1, 1).AddSeconds(d).ToLocalTime();
         }
 
         //Переводит время из нормального в квинтовое
         public static double TimeToKvint(DateTime t)
         {
-            return t.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            return t.ToUniversalTime().Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
         }
 
     }
