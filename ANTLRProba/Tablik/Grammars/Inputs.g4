@@ -22,7 +22,7 @@ argSignal : arg                             # ArgSignalArg
 			   | SIGNAL                    # ArgSignalSignal;
 			   
 arg : DATATYPE IDENT   #ArgDataType 
-      | IDENT                     #ArgIdent ;
+	  | IDENT                     #ArgIdent ;
 
 constVal : BOOL         #ConstBool	
 			| INT 	         #ConstInt
@@ -37,7 +37,7 @@ fragment DIG : [0-9] ;
 BOOL : [01];
 INT : DIG+;
 REAL:  DIG+('.'DIG+)?('e' '-'? DIG+)? 
-         | DIG+(','DIG+)?('e' '-'? DIG+)?;		
+		 | DIG+(','DIG+)?('e' '-'? DIG+)?;		
 DATE: '#' DIG+ '.' DIG+ '.' DIG+ ' ' DIG+ ':' DIG+ ':' DIG+ '#' ;
 STRING : '\'' .*? '\'';
 SIGNAL: '{' .*? '}';
