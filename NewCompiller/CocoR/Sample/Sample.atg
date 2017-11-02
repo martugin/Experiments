@@ -1,0 +1,5 @@
+COMPILER Sample
+PRODUCTIONS 
+  Sample = "red" "apple" | "orange".
+
+END Sample.
