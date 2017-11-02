@@ -6,6 +6,7 @@ namespace Prototype
     public enum NodeType
     {
         Project,
+        Modules,
         Module,
         Task,
         Generation,
@@ -14,10 +15,13 @@ namespace Prototype
         Type,
         SubParam,
         Var,
+        Connections,
         Connection,
         Object,
         Signal,
-        Char
+        Char,
+        Reports,
+        Report
     }
     
     public class Node
