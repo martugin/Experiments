@@ -33,6 +33,7 @@ namespace Prototype
         {
             _nodes.Clear();
             _tree = null;
+            Tree.Nodes.Clear();
             var dir = new DirectoryInfo(ProjectDir.Text);
             if (!dir.Exists)
             {
@@ -118,8 +119,8 @@ namespace Prototype
             var r = new StreamReader(file, Encoding.GetEncoding("windows-1251"));
             while (!r.EndOfStream)
             {
-                r.ReadLine();
-                sb.Append(r.ReadLine()).Append(Environment.NewLine);
+                string s = r.ReadLine();
+                sb.Append(s).Append(Environment.NewLine);
             }
             return sb.ToString();
         }
@@ -138,6 +139,7 @@ namespace Prototype
         {
             _nodes.Clear();
             _tree = null;
+            Tree.Nodes.Clear();
             var dir = new DirectoryInfo(ProjectDir.Text);
             if (!dir.Exists)
             {
@@ -149,51 +151,24 @@ namespace Prototype
             var projName = elem.Attribute("Code").Value;
             var projNode = Tree.Nodes.Add(projName, projName, "Project.png");
             _tree = new Node(NodeType.Project, projName, projNode);
-            //_nodes.Add(projName, _tree);
+            //_nodes.Add("Проект_" + projName, _tree);
             foreach (var el in elem.Elements())
                 VisitElem(el, _tree, projNode);
         }
+
+        private string _curPar;
 
         private void VisitElem(XElement elem, Node parNode, TreeNode parTree)
         {
             string code = elem.Attribute("Code").Value;
             var stype = elem.Name.LocalName;
             var tnode = parTree.Nodes.Add(code, code, stype + ".png");
-            var node = new Node(GetNodeType(stype), code, tnode);
-            //_nodes.Add(code, node);
+            var nodeType = stype.ToNodeType();
+            var node = new Node(nodeType, code, tnode);
+            //_nodes.Add(stype + "_" + code, node);
             parNode.Nodes.Add(code, node);
             foreach (var el in elem.Elements())
                 VisitElem(el, node, tnode);
-        }
-
-        private NodeType GetNodeType(string stype)
-        {
-            switch (stype)
-            {
-                case "Project":
-                    return NodeType.Project;
-                case "Module":
-                    return NodeType.Module;
-                case "Task":
-                    return NodeType.Task;
-                case "Generation":
-                    return NodeType.Generation;
-                case "Param":
-                    return NodeType.Param;
-                case "Type":
-                    return NodeType.Type;
-                case "SubParam":
-                    return NodeType.SubParam;
-                case "Var":
-                    return NodeType.Var;
-                case "Connection":
-                    return NodeType.Connection;
-                case "Object":
-                    return NodeType.Object;
-                case "Signal":
-                    return NodeType.Signal;
-            }
-            return NodeType.Project;
         }
     }
 }
